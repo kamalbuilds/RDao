@@ -1,0 +1,87 @@
+      .container {
+        background-color: #f7f7f9;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: auto;
+        padding-top: 25px;
+      }
+
+      .logo {
+        height: 75px;
+        width: 75px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      .hide {
+        display: none;
+        padding: 0;
+        margin: 0;
+      }
+      .center {
+        margin: 0 auto;
+      }
+      .loader {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        vertical-align: text-bottom;
+        border: 0.25em solid currentColor;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spin 1s linear infinite;
+        -moz-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+        margin-right: 10px;
+      }
+      @-moz-keyframes spin {
+        100% {
+          -moz-transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      @keyframes spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      .alert {
+        margin-top: 15px;
+      }
+      .space-around {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+      .ceramic-btn.active {
+        background-color: #f87237 !important;
+        color: white !important;
+      }
+      .idx-btn.active {
+        background-color: #6535ff !important;
+        color: white !important;
+      }
+      .documentation {
+        resize: both;
+        overflow: auto;
+        height: 200px;
+        width: 100%;
+        border: 1px solid transparent;
+        display: none;
+      }
+
+      #encryptLit{
+        display: inherit; 
+        margin: 20px auto;
+      }
+      
+      #readCeramic{
+        display: inherit;
+        margin: 20px auto
+      }
