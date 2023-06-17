@@ -1,5 +1,6 @@
 import React from 'react';
 import fileupload from '../components/lighthouse/fileupload';
+import Storeonceramic from '../components/Storeonceramic';
 
 const MyComponent = () => {
   const handleFileUpload = async (e : any) => {
@@ -14,6 +15,7 @@ const MyComponent = () => {
 
   return (
     <div>
+      <Storeonceramic />
       <input type="file" onChange={handleFileUpload} />
     </div>
   );

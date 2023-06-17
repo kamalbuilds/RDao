@@ -9,7 +9,7 @@ import {
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { mainnet, polygon, optimism , polygonMumbai , filecoinHyperspace } from 'wagmi/chains';
+import { mainnet, polygon, optimism , polygonMumbai , filecoinHyperspace , filecoinCalibration } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import { ResearcherProvider } from '../../context/ResearcherContext';
@@ -21,7 +21,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { chains, provider } = configureChains(
-    [mainnet, polygon, optimism , polygonMumbai , filecoinHyperspace],
+    [mainnet, polygon, optimism , polygonMumbai , filecoinHyperspace , filecoinCalibration],
     [
       publicProvider()
     ]
