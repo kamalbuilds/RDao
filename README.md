@@ -15,6 +15,12 @@ RDao ( DataDao) Created on the FVM Network ->
 | Spheron        | Spheron, a decentralized deployment framework, was used to ensure the secure and decentralized deployment of the Research Revolution platform. Deployed Link-                                                                                                                                         |
 ## Technologies Brief Usecase 
 
+### Bacaulhau Job Completed with job id - 3066f86d-3f10-4330-b514-e5891997538c
+
+Published Results - ipfs:/QmbEjTkzJJSERu35pYgS4t2g7WpAXeW2GZvuZihxAym6Fe
+
+![image](https://github.com/legendarykamal/RDao/assets/95926324/185f13e8-c8b3-491c-a653-b1873fe5d561)
+
 Staking of an ERC-20 token can be useful in the ResearchRevolution application in several ways:
 
 ### Staking of ApeTokens
