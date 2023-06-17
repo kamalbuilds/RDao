@@ -22,6 +22,6 @@
       "@polybase/auth": ["./node_modules/@polybase/auth"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/nft.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }

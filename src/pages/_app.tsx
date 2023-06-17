@@ -28,8 +28,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
   
   const { connectors } = getDefaultWallets({
-    appName: 'My RainbowKit App',
-    projectId: 'YOUR_PROJECT_ID',
+    appName: 'ResearchDao',
+    projectId: '65666aede674a225d119bbc226ef25e0',
     chains
   });
   
