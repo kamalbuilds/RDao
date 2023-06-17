@@ -64,7 +64,7 @@ function Oauthgoogle() {
 	return (
 		<div className="Oauthgoogle">
 			<div style={{ height: 80 }} />
-			<h1>Welcome To The PKP Demo!</h1>
+			<h1>Sign up with Google to get your PKP !</h1>
 			<div style={{ height: 24 }} />
 			<h3>Choose an authentication method to begin:</h3>
 			<ButtonGroup variant="outlined">
