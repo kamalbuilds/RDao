@@ -1,4 +1,9 @@
-# ResearchDao
+
+<p align= "center">
+    <img src="https://github.com/legendarykamal/RDao/assets/95926324/67dea8df-8184-47ec-9dea-4345239ea501" alt="rdao">
+</p>
+
+
 
 Contract code for the Repo can be found at -> [RDao Contract Code](https://github.com/legendarykamal/RDao-Contract)
 
