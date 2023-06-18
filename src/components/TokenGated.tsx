@@ -58,7 +58,7 @@ export default function TokenGated() {
         borderRadius="lg"
         boxShadow="lg"
       >
-    <h2 className="text-center text-cyan-300">TokenGated Room</h2>
+    <h2 className="text-center text-cyan-300">Conditional TokenGated Room </h2>
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="title">Title:</label>

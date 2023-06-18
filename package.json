@@ -18,6 +18,8 @@
     "@chakra-ui/react": "^2.7.0",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
+    "@huddle01/huddle01-iframe": "^0.0.9",
+    "@huddle01/react": "^0.0.11",
     "@lens-protocol/widgets-react": "^0.0.11",
     "@lighthouse-web3/sdk": "^0.2.2",
     "@lit-protocol/access-control-conditions": "^2.2.0",
@@ -63,10 +65,10 @@
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.12",
+    "did-jwt": "^5.2.0",
+    "did-resolver": "^3.0.1",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.4",
-    "typescript": "4.9.4",
-    "did-jwt": "^5.2.0",
-    "did-resolver": "^3.0.1"
+    "typescript": "4.9.4"
   }
 }
