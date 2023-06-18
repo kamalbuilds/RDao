@@ -3,7 +3,7 @@ import { Box, Flex, HStack, Link, Stack, useColorMode, useColorModeValue, useDis
 import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import StaticImage from 'next/image';
-import rr from "../../asset/rr.png";
+import rdao from "../../asset/rdao.png";
 import { Button } from '@chakra-ui/button';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount} from 'wagmi';
@@ -45,7 +45,7 @@ export default function Navbar() {
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <HStack spacing={8} alignItems={'center'}>
             <Link href="/">
-              <StaticImage src={rr} alt="Logo" width={250} height={50} className='mx-2'/>
+              <StaticImage src={rdao} alt="Logo" width={250} height={50} className='mx-2 mt-4'/>
             </Link>
             <HStack
               as={'nav'}

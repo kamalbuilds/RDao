@@ -10,7 +10,7 @@ import {
   import { FaTwitter, FaYoutube } from 'react-icons/fa';
   import { ReactNode } from 'react';
 import StaticImage  from 'next/image';
-import rr from "../../asset/rr.png";
+import rdao from "../../asset/rdao.png";
   
   const SocialButton = ({
     children,
@@ -56,7 +56,7 @@ import rr from "../../asset/rr.png";
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
-          <StaticImage src={rr} alt="Logo" width={250} height={50} />
+          <StaticImage src={rdao} alt="Logo" width={250} height={50} className='mx-2 mt-4'/>
           <Text>Copyright © 2023 Made with ❤️ by ResearchDao Team</Text>
           <Stack direction={'row'} spacing={6}>
             <SocialButton label={'Twitter'} href={'https://www.twitter.com/0xkamal7'} >
