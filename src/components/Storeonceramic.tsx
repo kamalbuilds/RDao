@@ -3,23 +3,27 @@ import { useEffect, useState } from 'react';
 import { DID } from 'dids';
 // @ts-ignore
 import { Integration } from 'lit-ceramic-sdk';
-import styles from "../styles/storeonceramic.module.css";
+// import styles from "../styles/storeonceramic.module.css";
+import litlogo from "../asset/lit-logo.png";
+import ceramiclogo from "../asset/web-playground-logo.svg";
+import Image from 'next/image';
 
 const Storeonceramic = () => {
-  const [streamID, setStreamID] = useState('kjzl6cwe1jw1479rnblkk5u43ivxkuo29i4efdx1e7hk94qrhjl0d4u0dyys1au'); // test data
+  const [streamID, setStreamID] = useState(''); // test data
   const [decryption, setDecryption] = useState('');
   const [stringToEncrypt, setStringToEncrypt] = useState('Type Secret Here!');
   const [litCeramicIntegration,setLitCeramicIntegration] = useState();
 
 
   useEffect(() => {
-    if (typeof window !== 'undefined' || typeof document !== 'undefined') {
-      console.log('DOMContent.........');
-      let litCeramicIntegration = new Integration('https://ceramic-clay.3boxlabs.com', 'polygon');
-      setLitCeramicIntegration(litCeramicIntegration);
-      litCeramicIntegration.startLitClient(window);
-    }
+    // if (typeof window !== 'undefined' || typeof document !== 'undefined') {
+    //   console.log('DOMContent.........');
+    //   let litCeramicIntegration = new Integration('https://ceramic-clay.3boxlabs.com', 'polygon');
+    //   setLitCeramicIntegration(litCeramicIntegration);
+    //   litCeramicIntegration.startLitClient(window);
+    // }
   }, []);
+  console.log(litCeramicIntegration,"hello");
 
   const updateAlert = (status: string, message: string) => {
     // Update the alert state or display it using a toast/notification library
@@ -35,14 +39,14 @@ const Storeonceramic = () => {
   };
 
   const readCeramic = () => {
-    if (document.getElementById('stream') === null) {
-      updateAlert('danger', 'Error, please write to ceramic first so a stream can be read');
-    } else {
-      console.log('this is the streamID youre sending: ', streamID);
-      litCeramicIntegration.readAndDecrypt(streamID).then((value: any) => {
-        setDecryption(value);
-      });
-    }
+    // if (typeof document !== 'undefined' && document.getElementById('stream') === null) {
+    //   updateAlert('danger', 'Error, please write to ceramic first so a stream can be read');
+    // } else if (litCeramicIntegration) {
+    //   console.log('this is the streamID you\'re sending: ', streamID);
+    //   litCeramicIntegration.readAndDecrypt(streamID).then((value: any) => {
+    //     setDecryption(value);
+    //   });
+    // }
   };
 
   const encryptLit = () => {
@@ -61,28 +65,29 @@ const Storeonceramic = () => {
       },
     ];
     
-    litCeramicIntegration.encryptAndWrite(stringToEncrypt, accessControlConditions)
-      .then((value: any) => {
-        updateStreamID(value);
-      });
+    // litCeramicIntegration.encryptAndWrite(stringToEncrypt, accessControlConditions)
+    //   .then((value: any) => {
+    //     updateStreamID(value);
+    //   });
   };
 
   return (
-    <div className={styles.container}>
+    <div className="flex justify-center items-center h-screen">
+    <div className="container mx-auto p-4">
       <header>
-        <div className="row">
-          <div className="col-xs-12 alert hide" role="alert" id="alerts"></div>
-          <div className="col-xs-offset-10 col-xs-2">
+        <div className="flex justify-between items-center mb-4">
+          <div className="alert hide" role="alert" id="alerts"></div>
+          <div>
             <span className="badge rounded-pill bg-secondary" id="userDID">Not Connected</span>
           </div>
         </div>
-        <div>
-          <img id="logo" src="images/lit-logo.png" alt="lit ceramic playground" className='h-100 w-100' />
-          +
-          <img id="logo" src="images/web-playground-logo.svg" alt="web playground logo" className='h-100 w-100' />
+        <div className="flex items-center mb-4">
+          <Image src={litlogo} alt="lit ceramic" className="h-12 w-12" />
+          <span className="mx-2">+</span>
+          <Image src={ceramiclogo} alt="lit ceramic" className="h-12 w-12" />
         </div>
-        <h1>Lit / Ceramic Web Playground</h1>
-        <p>
+        <h1 className="text-3xl font-bold">Store encrypted data</h1>
+        <p className="text-lg">
           Test out the Lit / Ceramic integration.
           <br />
           Encrypt with Lit and commit to the Ceramic network
@@ -90,47 +95,30 @@ const Storeonceramic = () => {
           then read from it back using ceramic and decrypt with Lit.
         </p>
         <form>
-          <br />
-            <label htmlFor="fname">Secret:</label>
+          <div className="my-4">
+            <label htmlFor="secret">Secret:</label>
             <input
               type="text"
               id="secret"
               name="secret"
               value={stringToEncrypt}
               onChange={handleSecretChange}
+              className="border border-gray-400 px-2 py-1"
             />
+          </div>
         </form>
       </header>
 
-      <main className={styles.main}>
-        <div className="row">
-          <div className="col-xs-12 space-around">
-            <br />
-            <br />
-            <div id="stream">{streamID}</div>
-          </div>
-          <div className="col-xs-12 col-lg-6">
-            <iframe
-              className="documentation"
-              src="https://developers.ceramic.network/build/javascript/quick-start/"
-              id="ceramic_docs"
-            >
-            </iframe>
-          </div>
-          <div className="col-xs-12 col-lg-6 text-right">
-            <iframe
-              className="documentation"
-              src="https://developers.idx.xyz/build/quick-start/"
-              id="idx_docs"
-            ></iframe>
-          </div>
+      <main>
+        <div className="my-4">
+          <div id="stream">{streamID}</div>
         </div>
 
         <div id="encryptLit">
           <button
             id="encryptLit"
             type="button"
-            className="btn btn-primary center"
+            className="btn btn-primary"
             onClick={encryptLit}
           >
             Encrypt w/ Lit + Send
@@ -141,7 +129,7 @@ const Storeonceramic = () => {
           <button
             id="readCeramic"
             type="button"
-            className="btn btn-primary center"
+            className="btn btn-primary"
             onClick={readCeramic}
           >
             Read then Decrypt w/ Lit
@@ -150,7 +138,9 @@ const Storeonceramic = () => {
         <div id="decryption">{decryption}</div>
       </main>
     </div>
+    </div>
   );
 };
+
 
 export default Storeonceramic;
