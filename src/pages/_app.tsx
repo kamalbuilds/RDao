@@ -18,6 +18,7 @@ import { PolybaseProvider , AuthProvider} from "@polybase/react";
 import { Polybase } from "@polybase/client";
 import { Auth } from "@polybase/auth";
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { chains, provider } = configureChains(
@@ -57,6 +58,10 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Box flex="1">
                 <ResearcherProvider>
                   <GoogleOAuthProvider clientId='537284182602-ul9nmso8sk507s10a3kp3jv5hgtvl65v.apps.googleusercontent.com'>
+                  <Head>
+                    <link rel="icon" type="image/png" href="/logo.jpeg" />
+                    <script async src="https://saturn.tech/widget.js"></script>
+                  </Head>
                     <Component {...pageProps} />
                   </GoogleOAuthProvider>
                 </ResearcherProvider>

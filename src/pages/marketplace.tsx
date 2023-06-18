@@ -8,11 +8,19 @@ import { ethers } from 'ethers';
 import { Box , Text } from '@chakra-ui/react';
 import { RiFilePaper2Line } from 'react-icons/ri';
 import Link from 'next/link';
-
+import apeabi from '../abis/Ape.json';
+import { useAccount } from 'wagmi';
+import { FormControl, FormLabel, Input } from '@chakra-ui/react';
+import { Modal , ModalOverlay , ModalBody , ModalContent, ModalHeader , ModalCloseButton , ModalFooter } from '@chakra-ui/react';
 const ResearchersPage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFundModalOpen, setIsFundModalOpen] = useState(false);
+  const [fundAmount, setFundAmount] = useState('');
+  const [recipientAddress, setRecipientAddress] = useState('');
   const daocontractAddress = '0x8d72887163f8bD8A65649Ef4af37dcc21500e5A1';
+  const apetokenAddress = '0x3ba884DbC5ab4a74F6e8a736Da81840Aec36b426';
+  const { address } = useAccount();
   // @ts-ignore
   const provider = typeof window !== 'undefined' ? new ethers.providers.Web3Provider(window.ethereum) : null;
 
@@ -24,8 +32,24 @@ const ResearchersPage = () => {
     setIsModalOpen(false);
   };
 
+  const openFundModal = () => {
+    setIsFundModalOpen(true);
+  };
+  
+  const closeFundModal = () => {
+    setIsFundModalOpen(false);
+  };
+  
   const [papers, setPapers] = useState([]);
 
+  const handlefund = async () => {
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const walletAddress = accounts[0]    // first account in MetaMask
+    const signer = provider.getSigner(walletAddress);
+    const contract = new ethers.Contract(apetokenAddress, apeabi, signer);
+    const transaction = await contract.transfer(recipientAddress, fundAmount); 
+  }
   useEffect(() => {
     const fetchPapers = async () => {
       try {
@@ -79,9 +103,46 @@ const ResearchersPage = () => {
             </Text>
             <div className='flex justify-center items-center'>
               <Link href={'/funding'}>
-                <Button mx={4} mt={4} p={4}>
+                <Button mx={4} mt={4} p={4} onClick={openFundModal}>
                   Fund
                 </Button>
+                {isFundModalOpen && (
+                    <Modal isOpen={isFundModalOpen} onClose={closeFundModal}>
+                      <ModalOverlay />
+                      <ModalContent>
+                        <ModalHeader>Fund Research</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                          <FormControl>
+                            <FormLabel>Amount</FormLabel>
+                            <Input
+                              type="text"
+                              placeholder="Enter amount"
+                              value={fundAmount}
+                              onChange={(e) => setFundAmount(e.target.value)}
+                            />
+                          </FormControl>
+                          <FormControl mt={4}>
+                            <FormLabel>Recipient Address</FormLabel>
+                            <Input
+                              type="text"
+                              placeholder="Enter recipient address"
+                              value={recipientAddress}
+                              onChange={(e) => setRecipientAddress(e.target.value)}
+                            />
+                          </FormControl>
+                        </ModalBody>
+                        <ModalFooter>
+                          <Button colorScheme="blue" onClick={handlefund}>
+                            Fund
+                          </Button>
+                          <Button ml={2} onClick={closeFundModal}>
+                            Cancel
+                          </Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
+)}
               </Link>
               <Button mx={4} mt={4}>
                 View

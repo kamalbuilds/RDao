@@ -37,6 +37,9 @@ const ResearchPaperBox = ({ fileName , publicKey , cid } : { fileName: string; p
       <Button mx={4} mt={4}>
         Make it Public
       </Button>
+      <Button mx={4} mt={4}>
+        Fund this Paper
+      </Button>
     </div>
     {/* Add more details here if needed */}
   </Box>
