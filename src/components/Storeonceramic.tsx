@@ -11,7 +11,7 @@ import Image from 'next/image';
 const Storeonceramic = () => {
   const [streamID, setStreamID] = useState(''); // test data
   const [decryption, setDecryption] = useState('');
-  const [stringToEncrypt, setStringToEncrypt] = useState('Type Secret Here!');
+  const [stringToEncrypt, setStringToEncrypt] = useState('Upload on Ceramic');
   const [litCeramicIntegration,setLitCeramicIntegration] = useState();
 
 
@@ -88,7 +88,7 @@ const Storeonceramic = () => {
         </div>
         <h1 className="text-3xl font-bold">Store encrypted data</h1>
         <p className="text-lg">
-          Test out the Lit / Ceramic integration.
+          Encrypt your Research Paper using Lit PKP and store on Ceramic.
           <br />
           Encrypt with Lit and commit to the Ceramic network
           <br />
@@ -96,7 +96,7 @@ const Storeonceramic = () => {
         </p>
         <form>
           <div className="my-4">
-            <label htmlFor="secret">Secret:</label>
+            <label htmlFor="secret">Research File:</label>
             <input
               type="text"
               id="secret"
